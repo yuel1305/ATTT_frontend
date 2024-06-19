@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 // Create an Axios instance
 // const apiClient = axios.create({
@@ -74,7 +76,10 @@ const Homepage = () => {
 
   return (
     <div>
-      <button onClick={handleLoginClick}>Log In </button>
+      <Stack spacing={2} direction="row">
+      <Button variant="contained" onClick={handleLoginClick}>Log In</Button>
+    </Stack>
+      {/* <button onClick={handleLoginClick}>Log In </button> */}
       {/* {users.map((user) => (
         <p key={user.id}>name: {user.name}</p>
       ))} */}

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import BasicTable from "./table";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 // Create an Axios instance
 const apiClient = axios.create({
@@ -84,15 +87,26 @@ const HomepageAfterLogin = () => {
       {/* <button onClick={handleLoginClick}>Log In </button> */}
       {localStorage.getItem("token") ? (
         <div>
-          {users.map((user) => (
+          {/* {users.map((user) => (
             <p key={user.id}>name: {user.name}</p>
-          ))}
-          <button onClick={handleLogOut}>Log Out</button>
+          ))} */}
+          <BasicTable datas={users}></BasicTable>
+          {/* <button onClick={handleLogOut}>Log Out</button> */}
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={handleLogOut}>
+              Log Out
+            </Button>
+          </Stack>
         </div>
       ) : (
         <div>
           <div>Bạn không có quyền truy cập</div>
-          <button onClick={handleReturn}>Return</button>
+          {/* <button onClick={handleReturn}>Return</button> */}
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={handleReturn}>
+              Return
+            </Button>
+          </Stack>
         </div>
       )}
     </div>
