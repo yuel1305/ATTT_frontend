@@ -44,15 +44,22 @@ const Login = () => {
     // }
   };
 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    withCredentials: true,
+  };
+
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(user);
       axios
-        .post("http://localhost:8080/api/v1/auth/login", user)
+        .post("http://localhost:8080/api/v1/auth/login", user, config)
         .then((res) => {
           if (typeof window !== "undefined")
             localStorage.setItem("token", res.data.data.accessToken);
-          console.log(res.data.data.accessToken);
+          // console.log(res.data.data.accessToken);
           navigate("/Homepage", { replace: true });
         });
       // if (typeof window !== "undefined")

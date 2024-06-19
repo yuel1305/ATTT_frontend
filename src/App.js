@@ -9,6 +9,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Register from "./Components/Register/Register";
+import HomepageAfterLogin from "./Components/HomePageAfterLogin/HomePageAfterLogin";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/Homepage" element={<Homepage />} />
-            <Route path="/signup" element={<Register />} />
+            <Route path="/" element={<Homepage />} />
+            <Route path="/Homepage" element={<HomepageAfterLogin />} />
 
+            <Route path="/signup" element={<Register />} />
           </Routes>
         </BrowserRouter>
       </header>
